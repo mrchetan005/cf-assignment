@@ -2,7 +2,7 @@ const nameRegex = /^[A-Za-z]+$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const mobileRegex = /^\d{10}$/;
 
-export const validateFormData = (name, value, obj) => {
+export const validateFormData = (name, value) => {
     if (!value) return 'This field is required';
 
     switch (name) {
@@ -26,4 +26,15 @@ export const validateFormData = (name, value, obj) => {
         default:
             return "";
     }
-}
+};
+
+export const getRowColor = (testType) => {
+    switch (testType) {
+        case 'PHP':
+            return 'bg-green-500 text-white';
+        case 'Node Js':
+            return 'bg-yellow-400';
+        default:
+            return 'bg-orange-500  text-white';
+    }
+};

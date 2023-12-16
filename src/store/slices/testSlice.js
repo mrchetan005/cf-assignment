@@ -14,8 +14,7 @@ const testSlice = createSlice({
     name: 'test',
     initialState,
     reducers: {
-        getLocalData(state) {
-            if (state.isFetchedLocalData) return;
+        getLocalData() {
             const testData = JSON.parse(localStorage.getItem('test_data'));
             if (testData) {
                 return testData;

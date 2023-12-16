@@ -5,11 +5,8 @@ import { useState } from "react";
 import Portal from "../Portal";
 import TestForm from "../Forms";
 
-
 const TableRow = ({ data, isTestTable }) => {
     const [showModal, setShowModal] = useState(false);
-
-    console.log('row', data);
     const dispatch = useDispatch();
 
     const handleDelete = () => {
@@ -22,8 +19,6 @@ const TableRow = ({ data, isTestTable }) => {
     const closeForm = () => {
         setShowModal(false);
     }
-
-    console.log(Object.values(data));
 
     return (
         <tr key={data?.id} className={`${getRowColor(data?.type)} text-center border h-full`}>
@@ -50,7 +45,7 @@ const TableRow = ({ data, isTestTable }) => {
 
             {
                 showModal &&
-                <Portal onClose={closeForm} className="overflow-y-auto">
+                <Portal onClose={closeForm}>
                     <TestForm id={data.id} onClose={closeForm} />
                 </Portal>
             }
@@ -58,15 +53,15 @@ const TableRow = ({ data, isTestTable }) => {
     )
 }
 
+export default TableRow;
+
 const getRowColor = (testType) => {
     switch (testType) {
         case 'PHP':
-            return 'bg-green-500 text-white';
+            return 'bg-[#4E944F] text-white';
         case 'Node Js':
-            return 'bg-yellow-400';
+            return 'bg-[#F1C93B]';
         default:
-            return 'bg-orange-500  text-white';
+            return 'bg-[#F79327]  text-white';
     }
 };
-
-export default TableRow;

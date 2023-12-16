@@ -1,14 +1,17 @@
-import { Provider } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
-import store from './store';
+import { getLocalData } from './store/slices/testSlice';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getLocalData());
+  }, []);
   return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <RouterProvider router={router} />
   )
 }
 

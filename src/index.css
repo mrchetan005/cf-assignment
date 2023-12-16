@@ -23,6 +23,10 @@ body {
 	overflow-x: hidden;
 }
 
+::selection {
+	background-color: #e26ee5;
+}
+
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -60,20 +64,14 @@ input::placeholder {
 /* !Navbar */
 
 .navlink.active {
-	background-color: rgb(209 213 219);
+	background-color: #96efff;
+	border: 1px solid #96efff;
+	font-weight: bolder !important;
 }
 
-.active .navItem::after,
-.navlink:hover::after {
-	content: "";
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 4px;
-	background-color: aqua;
-	transition: all 0.3s ease-in-out;
+.navlink.active:hover {
+	border: 1px solid #96efff;
+	background-color: #96efff;
 }
 
 /* ! Media Queries */

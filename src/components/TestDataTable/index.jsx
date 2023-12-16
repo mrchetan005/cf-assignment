@@ -1,7 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import TableRow from "./TableRow";
-import { useEffect } from "react";
-import { getLocalData } from "../../store/slices/testSlice";
 import { useLocation } from "react-router-dom";
 
 const options = {
@@ -12,22 +10,15 @@ const options = {
 
 const TestDataTable = () => {
     const { data, testTypes } = useSelector(state => state.test);
-
-    const dispatch = useDispatch();
     const { pathname } = useLocation();
-    console.log(pathname);
 
     const option = pathname.split('/')[1];
-
-    useEffect(() => {
-        dispatch(getLocalData());
-    }, []);
 
     return (
         <div className="w-full">
             <h1 className="py-5 text-xl font-medium text-center">{option?.split('-').join(' ').toUpperCase()}</h1>
 
-            <div className="w-full overflow-x-auto">
+            <div className="w-full overflow-x-auto rounded-md">
                 <table className={`w-full`}>
                     <thead className="text-center">
                         <tr className="text-gray-200 bg-gray-800 border">

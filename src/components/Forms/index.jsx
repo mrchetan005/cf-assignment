@@ -15,8 +15,6 @@ const TestForm = ({ id, onClose }) => {
     const { testTypes, data } = useSelector(state => state.test);
     const [errorData, setErrorData] = useState(initialData);
 
-    console.log(id);
-
     const initialState = id ? { ...data.find(item => item.id === id) } : initialData;
     const [testData, setTestData] = useState(initialState);
 
@@ -42,11 +40,9 @@ const TestForm = ({ id, onClose }) => {
     }
     const disabled = !!Object.values(errorData).join("") || Object.values(testData).some((data) => data === '');
 
-    console.log(disabled);
     const handleSubmit = (e) => {
         e.preventDefault();
         if (disabled) return;
-        console.log(testData);
 
         if (id) {
             dispatch(updateData(testData));
@@ -66,7 +62,7 @@ const TestForm = ({ id, onClose }) => {
     }
 
     return (
-        <div className="w-11/12 m-auto bg-white sm:rounded-xl sm:w-4/5">
+        <div className="w-full h-full pb-2 mx-auto overflow-y-auto bg-white sm:h-[calc(100vh-100px)] sm:rounded-xl sm:w-4/5">
             <h1 className="py-5 text-xl font-medium text-center">{id ? 'Edit' : 'Create'} Test</h1>
 
             <form onSubmit={handleSubmit} className="w-11/12 px-4 m-auto mb-10 sm:w-4/5">
@@ -134,7 +130,14 @@ const TestForm = ({ id, onClose }) => {
                     onBlur={handleInputBlur}
                 />
 
-                <Button text={id ? "Update" : "Create"} type="submit" disabled={disabled} className="m-auto" />
+                <div className="flex items-center justify-center gap-4">
+                    {
+                        id &&
+                        <Button text={"Cancel"} type="submit" disabled={disabled} className="!text-gray-700 bg-transparent !border-gray-500" />
+                    }
+                    <Button text={id ? "Update" : "Create"} type="submit" disabled={disabled} />
+                </div>
+
             </form>
             {
                 showModal &&

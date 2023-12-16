@@ -15,7 +15,6 @@ const Form1 = ({ onClose }) => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(value);
         setTypeData(prev => ({
             ...prev,
             [name]: value

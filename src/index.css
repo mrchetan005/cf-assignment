@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #d8d8d8;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #d8d8d88e;
+	border-radius: 8px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+input,
+select {
+	color: inherit;
+	background-color: inherit;
+	font-family: inherit;
+}
+
+input::placeholder {
+	font-family: inherit;
+}
+
+/* !Navbar */
+
+.navlink.active {
+	background-color: rgb(209 213 219);
+}
+
+.active .navItem::after,
+.navlink:hover::after {
+	content: "";
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background-color: aqua;
+	transition: all 0.3s ease-in-out;
+}
+
+/* ! Media Queries */
+
+@media screen and (max-width: 600px) {
+	html {
+		font-size: 62.5%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	html {
+		font-size: 75%;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	html {
+		font-size: 90%;
+	}
+}
